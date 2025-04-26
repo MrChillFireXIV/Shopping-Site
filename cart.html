@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Shopping Site</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="images/logo.png" width="85px">
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="">About</a></li>
+                        <li><a href="">Contact</a></li>
+                        <li><a href="">Account</a></li>
+                    </ul>
+                </nav>
+                <img src="images/cart.png" width="50px" height="50px" >
+            </div>
+        </div>
+    </div>
+    <div class="small-container cart-page">
+        <table>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Total Price</th>
+            </tr>
+            <tr>
+               <td>
+                   <div class="cart-info">
+                        <img src="images/bread.png" alt="Product 1">
+                        <div>
+                            <p>Bread</p>
+                            <small>Price: $6.99</small><br>
+                            <a href="">Remove</a>
+                        </div>
+                    </div>
+                </td>
+               <td><input type="number" value="1"></td>
+               <td>$6.99</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="cart-info">
+                         <img src="images/shoes.png" alt="Product 2">
+                         <div>
+                             <p>Bread</p>
+                             <small>Price: $42.99</small><br>
+                             <a href="">Remove</a>
+                         </div>
+                     </div>
+                 </td>
+                <td><input type="number" value="1"></td>
+                <td>$6.99</td>
+             </tr>
+             <tr>
+                <td>
+                    <div class="cart-info">
+                         <img src="images/switch.png" alt="Product 3">
+                         <div>
+                             <p>Bread</p>
+                             <small>Price: $299.99</small><br>
+                             <a href="">Remove</a>
+                         </div>
+                     </div>
+                 </td>
+                <td><input type="number" value="1"></td>
+                <td>$6.99</td>
+             </tr>
+             <tr>
+                <td>
+                    <div class="cart-info">
+                         <img src="images/toothpaste.png" alt="Product 4">
+                         <div>
+                             <p>Bread</p>
+                             <small>Price: $4.99</small><br>
+                             <a href="">Remove</a>
+                         </div>
+                     </div>
+                 </td>
+                <td><input type="number" value="1"></td>
+                <td>$6.99</td>
+             </tr>
+        </table>
+        <div class="total-price">
+            <table>
+                <tr>
+                    <td>Subtotal</td>
+                    <td>$354.96</td>
+                </tr>
+                <tr>
+                    <td>Tax</td>
+                    <td>$40.00</td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td>$394.96</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <li>Coupons</li>
+                        <li>Posts</li>
+                        <li>Return Policy</li>
+                        <li>Join Affiliate</li>
+                    </ul>
+                </div>
+                <div class="footer-col-2">
+                    <img src="images/footerlogo.png" >
+                    <p>Our purpose is to make the most money.  To be able to sell <br>
+                        prestige products so that our custumers will fondly enjoy.</p>
+
+                </div>
+                <div class="footer-col-3">
+                    <h3>Follow US</h3>
+                    <ul>
+                        <li>Facebook</li>
+                        <li>Twitter</li>
+                        <li>Instagram</li>
+                        <li>Youtube</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var MenuItems = document.getElementById("MenuItems");
+        MenuItems.style.maxHeight = "0px";
+        function menutoggle() {
+            if (MenuItems.style.maxHeight == "0px") {
+                MenuItems.style.maxHeight = "200px";
+            } else {
+                MenuItems.style.maxHeight = "0px";
+            }
+        }
+    </script>
+</body>
+</html>
