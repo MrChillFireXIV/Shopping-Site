@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account - Shopping Site</title>
-    <link rel="stylesheet" href="user-account.css">
+    <title>Shopping Site</title>
+    <link rel="stylesheet" href="about-us.css">
 </head>
 <body>
     <div class="header">
@@ -23,39 +23,23 @@
                     </ul>
                 </nav>
                 <a href="cart.html">
-                    <img src="images/cart.png" width="50px" height="50px" >
+                    <img src="images/cart.png" width="50px" height="50px">
                 </a>
             </div>
-            
-        </div>
-    </div>
-
-    <div class="account-page">
-        <div class="container">
             <div class="row">
                 <div class="col-2">
-                    <img src="images/product-tree.png" width="80%">
+                    <img src="images/Dream Team.png">
+                    
                 </div>
                 <div class="col-2">
-                    <div class="form-container">
-                        <div class="form-btn">
-                            <span onclick="login()">Login</span>
-                            <span onclick="register()">Register</span>
-                            <hr id="indicator">
-                        </div>
-                        <form id="login-form">
-                            <input type="text" placeholder="Username">
-                            <input type="password" placeholder="Password">
-                            <button typr="submit" class="btn">Login</button>
-                            <a href="">Forgot Password</a>
-                        </form>
-                        <form id="reg-form">
-                            <input type="text" placeholder="Username">
-                            <input type="email" placeholder="Email">
-                            <input type="password" placeholder="Password">
-                            <button typr="submit" class="btn">Register</button>
-                        </form>
-                    </div>
+                    <h1>We are the Dream Team!</h1>
+                    <p>Most people already know but we are the goats at selling products.  <br>
+                        Jeff Bezos got nothing on us when we pop into the scene.  All the CEOs get scared <br>
+                        when they hear us rumbling through the streets.  They all know that <br>
+                        one bad mouthed word from them means that we will absolutely destroy their business <br>
+                        and even their lives.  We as lone wolves are nothing but when we come together in a pack, <br>
+                        our aura gets unleashed into the air which every citizen of the land could sniff in an instant.</p>
+                    
                 </div>
             </div>
         </div>
@@ -90,26 +74,5 @@
             </div>
         </div>
     </div>
-
-    <script>
-
-        var loginForm = document.getElementById("login-form");
-        var regForm = document.getElementById("reg-form");
-        var indicator = document.getElementById("indicator");
-
-        function register() {
-            regForm.style.transform = "translateX(0px)";
-            loginForm.style.transform = "translateX(0px)";
-            indicator.style.transform = "translateX(100px)";
-        }
-
-        function login() {
-            regForm.style.transform = "translateX(375px)";
-            loginForm.style.transform = "translateX(375px)";
-            indicator.style.transform = "translateX(0px)";
-        }
-
-    </script>
-
 </body>
 </html>
