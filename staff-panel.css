@@ -189,3 +189,21 @@
     vertical-align: middle;
   }
   
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+a:hover {
+    color: #000;
+}
+  .sidebar li.logout-link:hover {
+    background-color: #000; /* solid black */
+    color: white;
+  }
+  
+  .sidebar li.logout-link:hover a {
+    color: white;
+  }
+  

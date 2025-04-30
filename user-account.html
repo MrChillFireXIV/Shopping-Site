@@ -43,10 +43,11 @@
                             <span onclick="register()">Register</span>
                             <hr id="indicator">
                         </div>
-                        <form id="login-form">
+                        <form id="login-form" onsubmit="handleLogin(event)">
                             <input type="text" placeholder="Username">
                             <input type="password" placeholder="Password">
-                            <button typr="submit" class="btn">Login</button>
+                            <button type="text" class="btn">Login</button>
+                            
                             <a href="">Forgot Password</a>
                         </form>
                         <form id="reg-form">
@@ -108,6 +109,13 @@
             loginForm.style.transform = "translateX(375px)";
             indicator.style.transform = "translateX(0px)";
         }
+
+        function handleLogin(event) {
+  event.preventDefault(); // prevent form from submitting normally
+  // Optionally validate credentials here
+  window.location.href = "staff-panel.html"; // redirect
+}
+
 
     </script>
 

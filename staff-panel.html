@@ -15,7 +15,7 @@
         <li onclick="showSection('customers')">Customer Info</li>
         <li onclick="showSection('orders')">Process Orders</li>
         <li onclick="showSection('profile')">My Profile</li>
-        <li onclick="logout()">Logout</li>
+        <li class="logout-link" onclick="logout()"><a href="index.html">Logout</a></li>
       </ul>
     </aside>
 
@@ -102,6 +102,12 @@
     </main>
   </div>
 
-  <script src="staff-panel.js"></script>
+  <script src="staff-panel.js">
+    function logout() {
+  
+  window.location.href = "index.html";
+}
+
+  </script>
 </body>
 </html>
