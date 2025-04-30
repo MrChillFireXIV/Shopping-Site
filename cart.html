@@ -107,6 +107,12 @@
                     <td>$394.96</td>
                 </tr>
             </table>
+            
+        </div>
+        <div class="checkout-btn">
+            <a href="checkout.html">
+                <button>Checkout</button>
+            </a>
         </div>
     </div>
     <div class="footer">
@@ -140,15 +146,11 @@
         </div>
     </div>
     <script>
-        var MenuItems = document.getElementById("MenuItems");
-        MenuItems.style.maxHeight = "0px";
-        function menutoggle() {
-            if (MenuItems.style.maxHeight == "0px") {
-                MenuItems.style.maxHeight = "200px";
-            } else {
-                MenuItems.style.maxHeight = "0px";
-            }
+        function toggleCardFields(value) {
+          const newCard = document.getElementById("new-card-fields");
+          newCard.style.display = value === "new" ? "block" : "none";
         }
-    </script>
+        </script>
+        
 </body>
 </html>

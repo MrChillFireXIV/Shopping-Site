@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shopping Site</title>
+  <link rel="stylesheet" href="checkout.css" />
+</head>
+<body>
+  <div class="header">
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <img src="images/logo.png" width="85px" />
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="about-us.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="user-account.html">Account</a></li>
+          </ul>
+        </nav>
+        <a href="cart.html">
+          <img src="images/cart.png" width="50px" height="50px" />
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container">
+    <h2>Checkout</h2>
+    <div class="checkout-wrapper">
+
+      <!-- Billing Information -->
+      <div class="billing-details">
+        <h3>Shipping Information</h3>
+        <form>
+          <label>Full Name</label>
+          <input type="text" placeholder="John Doe" required />
+
+          <label>Email</label>
+          <input type="email" placeholder="john@example.com" required />
+
+          <label>Address</label>
+          <input type="text" placeholder="123 Main St" required />
+
+          <label>City</label>
+          <input type="text" placeholder="New York" required />
+
+          <label>Zip Code</label>
+          <input type="text" placeholder="10001" required />
+
+          <div class="shipping-toggle">
+            <label>
+              <input type="checkbox" id="shippingToggle" onchange="toggleShippingFields()" />
+              Use a different shipping address?
+            </label>
+          </div>
+          
+          <div id="shipping-fields" style="display: none; margin-top: 20px;">
+            <label>Street Address</label>
+            <input type="text" placeholder="456 Example Ave" />
+          
+            <label>City</label>
+            <input type="text" placeholder="Los Angeles" />
+          
+            <label>Zip Code</label>
+            <input type="text" placeholder="90001" />
+          </div>
+          
+          <!-- Payment Section -->
+          <div class="payment-method">
+            <h3>Payment Method</h3>
+
+            <label for="card-choice">Select a Card</label>
+            <select id="card-choice" onchange="toggleCardFields(this.value)">
+              <option value="card1">Visa ending in 1234</option>
+              <option value="card2">MasterCard ending in 5678</option>
+              <option value="new">Add New Card</option>
+            </select>
+
+            <div id="new-card-fields" style="display: none;">
+              <label>Cardholder Name</label>
+              <input type="text" placeholder="John Doe" />
+
+              <label>Billing Address</label>
+              <input type="text" placeholder="1234 Address St.">
+
+              <label>Card Number</label>
+              <input type="text" placeholder="1111 2222 3333 4444" maxlength="19" />
+
+              <label>Expiration Date</label>
+              <input type="text" placeholder="MM/YY" maxlength="5" />
+
+              <label>CVV</label>
+              <input type="text" placeholder="123" maxlength="4" />
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Order Summary -->
+      <div class="order-summary">
+        <h3>Order Summary</h3>
+        <div class="item">
+          <p>Bread <span>$6.99</span></p>
+          <p>Shoes <span>$42.99</span></p>
+          <p>Console <span>$299.99</span></p>
+          <p>Toothpaste <span>$4.99</span></p>
+          <hr />
+          <p class="total">Total <span>$354.96</span></p>
+        </div>
+        <button class="place-order">Place Order</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="footer-col-1">
+          <h3>Useful Links</h3>
+          <ul>
+            <li>Coupons</li>
+            <li>Posts</li>
+            <li>Return Policy</li>
+            <li>Join Affiliate</li>
+          </ul>
+        </div>
+        <div class="footer-col-2">
+          <img src="images/footerlogo.png" />
+          <p>Our purpose is to make the most money. To be able to sell <br />prestige products so that our customers will fondly enjoy.</p>
+        </div>
+        <div class="footer-col-3">
+          <h3>Follow Us</h3>
+          <ul>
+            <li>Facebook</li>
+            <li>Twitter</li>
+            <li>Instagram</li>
+            <li>Youtube</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    function toggleCardFields(value) {
+      const newCardFields = document.getElementById("new-card-fields");
+      newCardFields.style.display = value === "new" ? "block" : "none";
+    }
+
+    function toggleShippingFields() {
+  const fields = document.getElementById("shipping-fields");
+  const checkbox = document.getElementById("shippingToggle");
+  fields.style.display = checkbox.checked ? "block" : "none";
+}
+
+  </script>
+
+</body>
+</html>

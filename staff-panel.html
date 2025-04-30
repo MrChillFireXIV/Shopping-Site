@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Staff Dashboard</title>
+  <link rel="stylesheet" href="staff-panel.css" />
+</head>
+<body>
+  <div class="dashboard-container">
+    <aside class="sidebar">
+      <h2>Staff Panel</h2>
+      <ul>
+        <li onclick="showSection('products')">Manage Products</li>
+        <li onclick="showSection('customers')">Customer Info</li>
+        <li onclick="showSection('orders')">Process Orders</li>
+        <li onclick="showSection('profile')">My Profile</li>
+        <li onclick="logout()">Logout</li>
+      </ul>
+    </aside>
+
+    <main class="main-panel">
+      <h1>Welcome, Store Staff</h1>
+
+      <!-- Products Section -->
+      <section id="products" class="dashboard-section">
+        <div class="card">
+          <h3>Products</h3>
+          <form id="product-form" onsubmit="addProduct(event)">
+            <input type="text" id="product-name" placeholder="Product Name" required />
+            <input type="number" id="product-price" placeholder="Price ($)" required />
+            <input type="text" id="product-description" placeholder="Description" required />
+            <input type="text" id="product-category" placeholder="Category" required />
+            <input type="text" id="product-brand" placeholder="Brand" required />
+            <input type="file" id="product-image" accept="image/*" />
+            <button type="submit">+ Add Product</button>
+          </form>
+
+          <table id="product-table">
+            <thead>
+                <tr>
+                    <td>
+                      <img src="images/bread.png" alt="Bread" class="product-thumb" />
+                      Bread
+                    </td>
+                    <td>$4.99</td>
+                    <td>
+                      <ul>
+                        <li>Warehouse A: 50</li>
+                        <li>Warehouse B: 30</li>
+                        <li>Warehouse C: 20</li>
+                      </ul>
+                    </td>
+                    <td>
+                      <strong>Description:</strong> Freshly baked whole wheat bread<br>
+                      <strong>Category:</strong> Bakery<br>
+                      <strong>Brand:</strong> Golden Grain
+                    </td>
+                    <td>
+                      <button class="edit-btn">Edit</button>
+                      <button class="delete-btn">Delete</button>
+                      <button class="inactive-btn" onclick="markInactive(this)">Make Inactive</button>
+                    </td>
+                  </tr>                                
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Customer Info Section -->
+      <section id="customers" class="dashboard-section hidden">
+        <div class="card">
+          <h3>Customer Info</h3>
+          <input type="text" placeholder="Search by name..." />
+          <div id="customer-results">
+            <!-- You can populate this dynamically -->
+            <p><strong>John Smith</strong> – 123 Apple St</p>
+            <p><strong>Emily Rose</strong> – 456 Orange Ave</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Orders Section -->
+      <section id="orders" class="dashboard-section hidden">
+        <div class="card">
+          <h3>Order Processing</h3>
+          <p><strong>Pending Orders:</strong> 5</p>
+          <button>Mark Order #123 as Fulfilled</button>
+        </div>
+      </section>
+
+      <!-- Staff Profile Section -->
+      <section id="profile" class="dashboard-section hidden">
+        <div class="card">
+          <h3>Staff Profile</h3>
+          <p><strong>Name:</strong> Jane Doe</p>
+          <p><strong>Address:</strong> 123 Retail St</p>
+          <p><strong>Salary:</strong> $42,000</p>
+          <p><strong>Job Title:</strong> Inventory Manager</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="staff-panel.js"></script>
+</body>
+</html>

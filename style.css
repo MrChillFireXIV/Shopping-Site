@@ -179,3 +179,22 @@ td:last-child{
 th:last-child{
     text-align: right;
 }
+
+.checkout-btn {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    
+}
+
+.checkout-btn button {
+    background-color: #ff523b;
+    color: white;
+    padding: 15px 40px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
