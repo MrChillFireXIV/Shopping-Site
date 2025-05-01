@@ -28,15 +28,17 @@
             </div>
         </div>
     </div>
+    
     <div class="small-container">
+          
         <div class="row row-2">
             <h2>All Products</h2>
-            <select>
-                <option>Default Sorting</option>
-                <option>Sort by Price</option>
-                <option>Sort by popularity</option>
-                <option>Sort by Rating</option>
-                <option>Sort by Sale</option>
+            <input type="text" id="search-input" placeholder="Search products..." />
+            <select id="sort-select">
+                <option value="default">Default Sorting</option>
+                <option value="price">Sort by Price</option>
+                <option value="popularity">Sort by Popularity</option>
+                <option value="alphabet">Sort by Alphabet</option>
             </select>
         </div>
         <div class="row">
@@ -129,12 +131,12 @@
                 </div>
             </a>
         </div>
-        <div class="page-btn">
-            <span>1</span>
-            <span>2</span>
-            <span>3</span>
-            <span>4</span>
-            <span>&#8594;</span>
+        <div class="page-btn" id="pagination">
+            <span data-page="1">1</span>
+            <span data-page="2">2</span>
+            <span data-page="3">3</span>
+            <span data-page="4">4</span>
+            <span data-page="next">&#8594;</span>
         </div>
     </div>
     <div class="footer">
@@ -167,5 +169,137 @@
             </div>
         </div>
     </div>
+    <script>
+        const productData = [
+          { name: "Loaf of Bread", price: 6.99, image: "images/bread.png" },
+          { name: "Tennis Shoes", price: 42.99, image: "images/shoes.png" },
+          { name: "Nintendo Switch", price: 299.99, image: "images/switch.png" },
+          { name: "Colgate Toothpaste", price: 4.99, image: "images/toothpaste.png" },
+          { name: "Headphones", price: 26.99, image: "images/headphones.png" },
+          { name: "Kit-Kat Bar", price: 2.99, image: "images/kitkat.png" },
+          { name: "Roller Blades", price: 19.99, image: "images/rollerblades.png" },
+          { name: "Blue Shirt", price: 14.99, image: "images/shirt.png" },
+          { name: "Rubik's Cube", price: 8.99, image: "images/cube.png" },
+          { name: "Smart Phone", price: 449.99, image: "images/phone.png" },
+          { name: "Light Up Sword", price: 9.99, image: "images/sword.png" },
+          { name: "Smart TV", price: 244.99, image: "images/tv.png" }
+        ];
+      
+        const container = document.querySelector(".small-container");
+        const sortSelect = document.getElementById("sort-select");
+        const searchInput = document.getElementById("search-input");
+        const pagination = document.getElementById("pagination");
+      
+        let currentSort = "default";
+        let currentPage = 1;
+        const productsPerPage = 12;
+      
+        function getSortedProducts(products) {
+          let sorted = [...products];
+          switch (currentSort) {
+            case "price":
+              sorted.sort((a, b) => a.price - b.price);
+              break;
+            case "popularity":
+              sorted.sort(() => 0.5 - Math.random()); // placeholder for actual popularity
+              break;
+            case "alphabet":
+              sorted.sort((a, b) => a.name.localeCompare(b.name));
+              break;
+          }
+          return sorted;
+        }
+      
+        function renderPagination(filteredList) {
+          const totalPages = Math.ceil(filteredList.length / productsPerPage);
+          pagination.innerHTML = "";
+      
+          for (let i = 1; i <= totalPages; i++) {
+            pagination.innerHTML += `<span data-page="${i}">${i}</span>`;
+          }
+      
+          pagination.innerHTML += `<span data-page="next">&#8594;</span>`;
+      
+          [...pagination.children].forEach(btn => {
+            if (parseInt(btn.dataset.page) === currentPage) {
+              btn.style.background = "#000";
+              btn.style.color = "#fff";
+            } else {
+              btn.style.background = "";
+              btn.style.color = "";
+            }
+          });
+        }
+      
+        function renderProducts(productList) {
+          const rows = document.querySelectorAll(".small-container .row");
+          rows.forEach(row => {
+            if (!row.classList.contains("row-2") && !row.classList.contains("page-btn")) {
+              row.remove();
+            }
+          });
+      
+          const start = (currentPage - 1) * productsPerPage;
+          const paginated = productList.slice(start, start + productsPerPage);
+      
+          const pageInsertBefore = document.getElementById("pagination");
+          for (let i = 0; i < paginated.length; i += 4) {
+            const row = document.createElement("div");
+            row.className = "row";
+            for (let j = i; j < i + 4 && j < paginated.length; j++) {
+              const p = paginated[j];
+              row.innerHTML += `
+                <a href="product-details.html">
+                  <div class="col-4">
+                    <img src="${p.image}">
+                    <h4>${p.name}</h4>
+                    <p>$${p.price.toFixed(2)}</p>
+                  </div>
+                </a>
+              `;
+            }
+            container.insertBefore(row, pageInsertBefore);
+          }
+      
+          renderPagination(productList);
+        }
+      
+        function getFilteredProducts() {
+          return productData.filter(p =>
+            p.name.toLowerCase().includes(searchInput.value.toLowerCase())
+          );
+        }
+      
+        sortSelect.addEventListener("change", () => {
+          currentSort = sortSelect.value;
+          currentPage = 1;
+          renderProducts(getSortedProducts(getFilteredProducts()));
+        });
+      
+        searchInput.addEventListener("input", () => {
+          currentPage = 1;
+          renderProducts(getSortedProducts(getFilteredProducts()));
+        });
+      
+        pagination.addEventListener("click", (e) => {
+          const page = e.target.dataset.page;
+          if (!page) return;
+      
+          const maxPage = Math.ceil(getFilteredProducts().length / productsPerPage);
+      
+          if (page === "next") {
+            if (currentPage < maxPage) currentPage++;
+          } else {
+            currentPage = parseInt(page);
+          }
+      
+          renderProducts(getSortedProducts(getFilteredProducts()));
+        });
+      
+        // Initial render
+        renderProducts(productData);
+      </script>
+      
+      
 </body>
 </html>

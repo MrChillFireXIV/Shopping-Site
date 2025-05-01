@@ -130,11 +130,11 @@
   }
 
 .edit-btn:hover {
-  background-color: #e6f0ff;
+  background-color: #f9543ebb;
 }
 
 .delete-btn:hover {
-  background-color: #ffe6e6;
+  background-color: #f9543ebb;
 }
 
 #product-table ul {
@@ -156,7 +156,7 @@
   }
   
   .inactive-btn:hover:enabled {
-    background-color: #ccc;
+    background-color: #f9543ebb;
   }
   
   #product-table td, 
@@ -195,7 +195,7 @@ a {
 }
 
 
-a:hover {
+li:hover {
     color: #000;
 }
   .sidebar li.logout-link:hover {
@@ -206,4 +206,6 @@ a:hover {
   .sidebar li.logout-link:hover a {
     color: white;
   }
+  
+
   
