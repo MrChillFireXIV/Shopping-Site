@@ -366,12 +366,29 @@
     </main>
   </div>
 
-  <script src="staff-panel.js">
+  <script>
     function logout() {
-  
-  window.location.href = "index.html";
-}
-
-  </script>
+      window.location.href = "index.html";
+    }
+    
+    function markInactive(button) {
+      const row = button.closest('tr');
+    
+      if (row.classList.contains('inactive-product')) {
+        // Re-enable
+        row.classList.remove('inactive-product');
+        row.style.backgroundColor = 'white';
+        row.style.opacity = 1;
+        button.innerText = "Make Inactive";
+      } else {
+        // Make inactive
+        row.classList.add('inactive-product');
+        row.style.backgroundColor = '#d1d5db'; // gray
+        row.style.opacity = 0.6;
+        button.innerText = "Enable";
+      }
+    }
+    </script>
+    
 </body>
 </html>
