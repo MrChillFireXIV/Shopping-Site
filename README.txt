@@ -1,0 +1,5 @@
+README
+
+For our project, we all worked together on each of the parts of the submission, but we also split the workload. Kevin Chu worked primarily on the ER Model and Relational Schema, providing some assistance to both Colin and Jason on the frontend and backend with comparisons to the ER Model and help setting it up organizationally. Colin Hill and Jason Galanie worked together on the frontend and backend, as in Colin would create the Homepage, Checkout page, Products page and Footer, and Jason created the Cart page, Staff page, and the NavBar. We all three worked together on the backend as that was the hardest of the project for us, and required all of our minds together.
+
+For our project the Frontend worked very well along with a well designed ER Model and Relational Schema, but we had some troubles with the Backend as all of us are newer to node.js and tried to learn as we progressed. Hope you like our website!
